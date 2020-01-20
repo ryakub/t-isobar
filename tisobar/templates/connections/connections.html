@@ -1,0 +1,265 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block navigation %}
+
+          <li class="nav-label">Pages</li>
+          <li class="nav-item with-sub active show">
+            <a href="" class="nav-link"><i data-feather="user"></i> <span>User Pages</span></a>
+            <ul>
+              <li><a href="page-profile-view.html">View Profile</a></li>
+              <li class="active"><a href="page-connections.html">Connections</a></li>
+              <li><a href="page-groups.html">Groups</a></li>
+              <li><a href="page-events.html">Events</a></li>
+            </ul>
+          </li>
+          <li class="nav-item with-sub">
+            <a href="" class="nav-link"><i data-feather="file"></i> <span>Other Pages</span></a>
+            <ul>
+              <li><a href="page-timeline.html">Timeline</a></li>
+            </ul>
+          </li>
+
+{% endblock %}
+
+{% block content %}
+      <div class="content-body">
+        <div class="container pd-x-0 tx-13">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-style1 mg-b-5">
+              <li class="breadcrumb-item active" aria-current="page">Connections</li>
+              <li class="breadcrumb-item"><a href="#">Active connections</a></li>
+              <li class="breadcrumb-item"><a href="#">Alerts</a></li>
+            </ol>
+          </nav>
+          <h4 class="mg-b-25">All available connections</h4>
+              <div class="row row-xs mg-b-25">
+                <div class="col-sm-6 col-md-4">
+                  <div class="card card-profile">
+                    <img src="https://via.placeholder.com/500" class="card-img-top" alt="">
+                    <div class="card-body tx-13">
+                      <div>
+                        <a href="">
+                          <div class="avatar avatar-lg"><span class="avatar-initial rounded-circle bg-indigo">YD</span></div>
+                        </a>
+                        <h5><a href="">Yandex Direct</a></h5>
+                        <p>1,232,099 Alerts</p>
+
+                        <div class="img-group img-group-sm mg-b-5">
+                          <img src="https://via.placeholder.com/500" class="img wd-40 ht-40 rounded-circle" alt="">
+                          <img src="https://via.placeholder.com/500" class="img wd-40 ht-40 rounded-circle" alt="">
+                          <img src="https://via.placeholder.com/500" class="img wd-40 ht-40 rounded-circle" alt="">
+                        </div>
+                        <div class="mg-b-25"><span class="tx-12 tx-color-03">9 Connections</span></div>
+
+                        <button class="btn btn-block btn-primary">New connection</button>
+                      </div>
+                    </div>
+                  </div><!-- card -->
+                </div><!-- col -->
+                <div class="col-sm-6 col-md-4 mg-t-10 mg-sm-t-0">
+                  <div class="card card-profile">
+                    <img src="https://via.placeholder.com/500x281" class="card-img-top" alt="">
+                    <div class="card-body tx-13">
+                      <div>
+                        <a href="">
+                          <div class="avatar avatar-lg"><span class="avatar-initial rounded-circle bg-dark">Ads</span></div>
+                        </a>
+                        <h5><a href="">Google Ads</a></h5>
+                        <p>1,055,767 Alerts</p>
+
+                        <div class="img-group img-group-sm mg-b-5">
+                          <img src="https://via.placeholder.com/500" class="img wd-40 ht-40 rounded-circle" alt="">
+                          <img src="https://via.placeholder.com/500" class="img wd-40 ht-40 rounded-circle" alt="">
+                          <img src="https://via.placeholder.com/500" class="img wd-40 ht-40 rounded-circle" alt="">
+                        </div>
+                        <div class="mg-b-25"><span class="tx-12 tx-color-03">3 Connections</span></div>
+
+                        <button class="btn btn-block btn-primary">New connection</button>
+                      </div>
+                    </div>
+                  </div><!-- card -->
+                </div><!-- col -->
+                <div class="col-sm-6 col-md-4 mg-t-10 mg-md-t-0">
+                  <div class="card card-profile">
+                    <img src="https://via.placeholder.com/640x427" class="card-img-top" alt="">
+                    <div class="card-body tx-13">
+                      <div>
+                        <a href="">
+                          <div class="avatar avatar-lg"><span class="avatar-initial rounded-circle bg-dark">VK</span></div>
+                        </a>
+                        <h5><a href="">VKontakte</a></h5>
+                        <p>1,002,005 Alerts</p>
+
+                        <div class="img-group img-group-sm mg-b-5">
+                          <img src="https://via.placeholder.com/350" class="img wd-40 ht-40 rounded-circle" alt="">
+                        </div>
+                        <div class="mg-b-25"><span class="tx-12 tx-color-03">1 Connection</span></div>
+
+                        <button class="btn btn-block btn-primary">New connection</button>
+                      </div>
+                    </div>
+                  </div><!-- card -->
+                </div><!-- col -->
+                <div class="col-sm-6 col-md-4 mg-t-10">
+                  <div class="card card-profile">
+                    <img src="https://via.placeholder.com/640x360" class="card-img-top" alt="">
+                    <div class="card-body tx-13">
+                      <div>
+                        <a href="">
+                          <div class="avatar avatar-lg"><span class="avatar-initial rounded-circle bg-teal">GA</span></div>
+                        </a>
+                        <h5><a href="">Google Analytics</a></h5>
+                        <p>1,032,292 Alerts</p>
+
+                        <div class="img-group img-group-sm mg-b-5">
+                          <img src="https://via.placeholder.com/500" class="img wd-40 ht-40 rounded-circle" alt="">
+                          <img src="https://via.placeholder.com/500" class="img wd-40 ht-40 rounded-circle" alt="">
+                          <img src="https://via.placeholder.com/500" class="img wd-40 ht-40 rounded-circle" alt="">
+                        </div>
+                        <div class="mg-b-25"><span class="tx-12 tx-color-03">3 Connections</span></div>
+
+                        <button class="btn btn-block btn-primary">New connection</button>
+                      </div>
+                    </div>
+                  </div><!-- card -->
+                </div><!-- col -->
+                <div class="col-sm-6 col-md-4 mg-t-10">
+                  <div class="card card-profile">
+                    <img src="https://via.placeholder.com/500x281" class="card-img-top" alt="">
+                    <div class="card-body tx-13">
+                      <div>
+                        <a href="">
+                          <div class="avatar avatar-lg"><span class="avatar-initial rounded-circle bg-teal">FB</span></div>
+                        </a>
+                        <h5><a href="">Facebook</a></h5>
+                        <p>990,010 Alerts</p>
+
+                        <div class="img-group img-group-sm mg-b-5">
+                          <img src="https://via.placeholder.com/500" class="img wd-40 ht-40 rounded-circle" alt="">
+                          <img src="https://via.placeholder.com/500" class="img wd-40 ht-40 rounded-circle" alt="">
+                        </div>
+                        <div class="mg-b-25"><span class="tx-12 tx-color-03">2 Connections</span></div>
+
+                        <button class="btn btn-block btn-primary">New connection</button>
+                      </div>
+                    </div>
+                  </div><!-- card -->
+                </div><!-- col -->
+                <div class="col-sm-6 col-md-4 mg-t-10">
+                  <div class="card card-profile">
+                    <img src="https://via.placeholder.com/500x281" class="card-img-top" alt="">
+                    <div class="card-body tx-13">
+                      <div>
+                        <a href="">
+                          <div class="avatar avatar-lg"><span class="avatar-initial rounded-circle bg-dark">CT</span></div>
+                        </a>
+                        <h5><a href="">Calltouch</a></h5>
+                        <p>988,500 Alerts</p>
+
+                        <div class="img-group img-group-sm mg-b-5">
+                          <img src="https://via.placeholder.com/500" class="img wd-40 ht-40 rounded-circle" alt="">
+                          <img src="https://via.placeholder.com/500" class="img wd-40 ht-40 rounded-circle" alt="">
+                        </div>
+                        <div class="mg-b-25"><span class="tx-12 tx-color-03">2 Connections</span></div>
+
+                        <button class="btn btn-block btn-primary">New connection</button>
+                      </div>
+                    </div>
+                  </div><!-- card -->
+                </div><!-- col -->
+                <div class="col-sm-6 col-md-4 mg-t-10">
+                  <div class="card card-profile">
+                    <img src="https://via.placeholder.com/500x281" class="card-img-top" alt="">
+                    <div class="card-body tx-13">
+                      <div>
+                        <a href="">
+                          <div class="avatar avatar-lg"><span class="avatar-initial rounded-circle bg-dark">MT</span></div>
+                        </a>
+                        <h5><a href="">MyTarget</a></h5>
+                        <p>988,500 Alerts</p>
+
+                        <div class="img-group img-group-sm mg-b-5">
+                          <img src="https://via.placeholder.com/500" class="img wd-40 ht-40 rounded-circle" alt="">
+                          <img src="https://via.placeholder.com/500" class="img wd-40 ht-40 rounded-circle" alt="">
+                          <img src="https://via.placeholder.com/350" class="img wd-40 ht-40 rounded-circle" alt="">
+                        </div>
+                        <div class="mg-b-25"><span class="tx-12 tx-color-03">3 Connections</span></div>
+
+                        <button class="btn btn-block btn-primary">New Connection</button>
+                      </div>
+                    </div>
+                  </div><!-- card -->
+                </div><!-- col -->
+                <div class="col-sm-6 col-md-4 mg-t-10">
+                  <div class="card card-profile">
+                    <img src="https://via.placeholder.com/500x281" class="card-img-top" alt="">
+                    <div class="card-body tx-13">
+                      <div>
+                        <a href="">
+                          <div class="avatar avatar-lg"><span class="avatar-initial rounded-circle bg-teal">YM</span></div>
+                        </a>
+                        <h5><a href="">Yandex Metrika</a></h5>
+                        <p>990,010 Alerts</p>
+
+                        <div class="img-group img-group-sm mg-b-5">
+                          <img src="https://via.placeholder.com/500" class="img wd-40 ht-40 rounded-circle" alt="">
+                          <img src="https://via.placeholder.com/500" class="img wd-40 ht-40 rounded-circle" alt="">
+                        </div>
+                        <div class="mg-b-25"><span class="tx-12 tx-color-03">2 Connections</span></div>
+
+                        <button class="btn btn-block btn-primary">New connection</button>
+                      </div>
+                    </div>
+                  </div><!-- card -->
+                </div><!-- col -->
+                <div class="col-sm-6 col-md-4 mg-t-10">
+                  <div class="card card-profile">
+                    <img src="https://via.placeholder.com/500x281" class="card-img-top" alt="">
+                    <div class="card-body tx-13">
+                      <div>
+                        <a href="">
+                          <div class="avatar avatar-lg"><span class="avatar-initial rounded-circle bg-teal">WH</span></div>
+                        </a>
+                        <h5><a href="">Webhooks</a></h5>
+                        <p>990,010 Alerts</p>
+
+                        <div class="img-group img-group-sm mg-b-5">
+                          <img src="https://via.placeholder.com/500" class="img wd-40 ht-40 rounded-circle" alt="">
+                          <img src="https://via.placeholder.com/500" class="img wd-40 ht-40 rounded-circle" alt="">
+                        </div>
+                        <div class="mg-b-25"><span class="tx-12 tx-color-03">2 Connections</span></div>
+
+                        <button class="btn btn-block btn-primary">New connection</button>
+                      </div>
+                    </div>
+                  </div><!-- card -->
+                </div><!-- col -->
+                <div class="col-sm-6 col-md-4 mg-t-10">
+                  <div class="card card-profile">
+                    <img src="https://via.placeholder.com/500x281" class="card-img-top" alt="">
+                    <div class="card-body tx-13">
+                      <div>
+                        <a href="">
+                          <div class="avatar avatar-lg"><span class="avatar-initial rounded-circle bg-teal">BQ</span></div>
+                        </a>
+                        <h5><a href="">BigQuery</a></h5>
+                        <p>990,010 Alerts</p>
+
+                        <div class="img-group img-group-sm mg-b-5">
+                          <img src="https://via.placeholder.com/500" class="img wd-40 ht-40 rounded-circle" alt="">
+                          <img src="https://via.placeholder.com/500" class="img wd-40 ht-40 rounded-circle" alt="">
+                        </div>
+                        <div class="mg-b-25"><span class="tx-12 tx-color-03">2 Connections</span></div>
+
+                        <button class="btn btn-block btn-primary">New connection</button>
+                      </div>
+                    </div>
+                  </div><!-- card -->
+                </div><!-- col -->
+
+              </div><!-- row -->
+        </div><!-- container -->
+      </div><!-- content-body -->
+
+{% endblock %}

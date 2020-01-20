@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block navigation %}
+
+          <li class="nav-label">Pages</li>
+          <li class="nav-item with-sub active show">
+            <a href="" class="nav-link"><i data-feather="user"></i> <span>User Pages</span></a>
+            <ul>
+              <li><a href="page-profile-view.html">View Profile</a></li>
+              <li class="active"><a href="page-connections.html">Connections</a></li>
+              <li><a href="page-groups.html">Groups</a></li>
+              <li><a href="page-events.html">Events</a></li>
+            </ul>
+          </li>
+          <li class="nav-item with-sub">
+            <a href="" class="nav-link"><i data-feather="file"></i> <span>Other Pages</span></a>
+            <ul>
+              <li><a href="page-timeline.html">Timeline</a></li>
+            </ul>
+          </li>
+
+{% endblock %}
+{% block content %}
+
+      <div class="content-body">
+        <div class="container pd-x-0 tx-13">
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb breadcrumb-style1 mg-b-5">
+              <li class="breadcrumb-item">Connections</li>
+              <li class="breadcrumb-item active" aria-current="page">VKontakte</li>
+            </ol>
+          </nav>
+          <h4 class="mg-b-25">All available accounts</h4>
+
+              <div class="row row-xs mg-b-25">
+                <div class="col-sm-6 col-md-4">
+                  <div class="card card-profile">
+                    <img src="https://via.placeholder.com/500" class="card-img-top" alt="">
+                    <div class="card-body tx-13">
+                      <div>
+                        <a href="">
+                          <div class="avatar avatar-lg"><span class="avatar-initial rounded-circle bg-indigo">YD</span></div>
+                        </a>
+                        <h5><a href="">Client name</a></h5>
+
+                        <div class="mg-b-25"><span class="tx-12 tx-color-03">Page name</span></div>
+
+                        <button class="btn btn-block btn-primary">Delete</button>
+                      </div>
+                    </div>
+                  </div><!-- card -->
+
+                </div><!-- col -->
+              </div><!-- row -->
+
+        </div><!-- container -->
+      </div><!-- content-body -->
+{% endblock %}
