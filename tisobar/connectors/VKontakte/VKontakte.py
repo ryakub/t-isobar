@@ -8,7 +8,7 @@ class VKApp:
         self.__v = "5.101"
         self.__method_url = "https://api.vk.com/method/"
 
-    def __get_profile_info(self):
+    def get_profile_info(self):
         profile_info = self.__request('users.get', request_type='get')[0]
         return profile_info['first_name'], profile_info['last_name'], profile_info['id']
 

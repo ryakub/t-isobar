@@ -26,4 +26,5 @@ urlpatterns = [
     url(r'^sign-up/$', iauth_views.sign_up, name='sign-up'),
     url(r'^connections/$', iauth_views.connections, name='connections'),
     url(r'^vkontakte/accounts/$', iauth_views.vk_accounts, name='vk_accounts'),
+    url(r'^vkontakte/oauth/code/', iauth_views.vk_oauth_get_token, name='vk_oauth_get_token'),
 ]

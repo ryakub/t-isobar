@@ -1,0 +1,9 @@
+dj-database-url
+Django
+django-heroku
+gunicorn
+pip
+psycopg2
+pytz
+setuptools
+whitenoise
