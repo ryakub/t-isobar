@@ -3,10 +3,12 @@ import time
 
 
 class VKApp:
-    def __init__(self, access_token):
+    def __init__(self, access_token, account_id, client_id):
         self.__access_token = access_token
         self.__v = "5.101"
         self.__method_url = "https://api.vk.com/method/"
+        self.account_id = account_id
+        self.client_id = client_id
 
     def get_profile_info(self):
         profile_info = self.__request('users.get', request_type='get')[0]
@@ -29,10 +31,7 @@ class VKApp:
                 params[key] = value
         else:
             params = kwargs
-        if request_type == 'get':
-            request_data = requests.get(self.__method_url + method, params=params).json()
-        else:
-            request_data = requests.post(self.__method_url + method, params=params).json()
+        request_data = requests.request(request_type, self.__method_url + method, params=params).json()
         return self.get_errors(request_data, method, params, request_type, i=0)
 
     def get_errors(self, response, method, params, request_type, i=0):
@@ -63,18 +62,18 @@ class VKApp:
             time.sleep(2)
         return all_clients
 
-    def get_campaigns(self, account_id, client_id):
-        campaigns = self.__request('ads.getCampaigns', request_type='get', account_id=account_id, include_deleted=1,
-                                   client_id=client_id)
+    def get_campaigns(self):
+        campaigns = self.__request('ads.getCampaigns', request_type='get', account_id=self.account_id,
+                                   include_deleted=1, client_id=self.client_id)
         return campaigns
 
-    def get_ads(self, account_id, client_id, campaign_ids):
+    def get_ads(self, campaign_ids):
         campaign_ids = self.__slice(campaign_ids, slice_list=[])
         ads_list = []
         for campaign_ids_list in campaign_ids:
             campaign_ids_string = ",".join([str(x) for x in campaign_ids_list])
-            ads = self.__request('ads.getAds', request_type='get', account_id=account_id,
-                                 campaign_ids=f"[{campaign_ids_string}]", client_id=client_id)
+            ads = self.__request('ads.getAds', request_type='get', account_id=self.account_id,
+                                 campaign_ids=f"[{campaign_ids_string}]", client_id=self.client_id)
             for ad in ads:
                 ads_list.append(ad)
             time.sleep(2)
@@ -84,12 +83,12 @@ class VKApp:
         groups = self.__request('groups.get', request_type='get', extended=1)
         return groups['items']
 
-    def get_day_stats(self, account_id, ids_type, list_of_ids, date_from, date_to, limit=2000):
+    def get_day_stats(self, ids_type, list_of_ids, date_from, date_to, limit=2000):
         day_stat_list = []
         ids_list = self.__slice(list_of_ids, limit, slice_list=[])
         for ids_stat_list in ids_list:
             ids_stat_string = ",".join([str(x) for x in ids_stat_list])
-            day_stats = self.__request('ads.getStatistics', request_type='get', account_id=account_id,
+            day_stats = self.__request('ads.getStatistics', request_type='get', account_id=self.account_id,
                                        ids_type=ids_type, ids=ids_stat_string, period="day", date_from=date_from,
                                        date_to=date_to)
             for DayStat in day_stats:
@@ -98,12 +97,12 @@ class VKApp:
             time.sleep(2)
         return day_stat_list
 
-    def get_posts_reach(self, account_id, post_reach_list_ids, limit=100):
+    def get_posts_reach(self, post_reach_list_ids, limit=100):
         posts_reach = []
         post_reach_list = self.__slice(post_reach_list_ids, limit, slice_list=[])
         for PostReach_id_list in post_reach_list:
             post_reach_ids_string = ",".join([str(x) for x in PostReach_id_list])
-            post_reach_response = self.__request('ads.getPostsReach', request_type='get', account_id=account_id,
+            post_reach_response = self.__request('ads.getPostsReach', request_type='get', account_id=self.account_id,
                                                  ids_type="ad", ids=post_reach_ids_string)
             for PostReach_stat in post_reach_response:
                 posts_reach.append(PostReach_stat)
@@ -111,24 +110,25 @@ class VKApp:
         return posts_reach
 
     # TODO: Доделать лбработку результатов в get_demographics
-    def get_demographics(self, account_id, demographics_list_ids, date_from, date_to, limit=2000):
+    def get_demographics(self, demographics_list_ids, date_from, date_to, limit=2000):
         demographics = []
         demographics_list = self.__slice(demographics_list_ids, limit, slice_list=[])
         for Demographics_id_list in demographics_list:
             demographics_ids_string = ",".join([str(x) for x in Demographics_id_list])
-            demographics_response = self.__request('ads.getDemographics', request_type='get', account_id=account_id,
-                                                   ids_type="ad", ids=demographics_ids_string, period="day",
+            demographics_response = self.__request('ads.getDemographics', request_type='get',
+                                                   account_id=self.account_id, ids_type="ad",
+                                                   ids=demographics_ids_string, period="day",
                                                    date_from=date_from, date_to=date_to)
             demographics.append(demographics_response)
         return demographics
 
-    def get_ads_layout(self, account_id, client_id, ads_list_ids, limit=2000):
+    def get_ads_layout(self, ads_list_ids, limit=2000):
         ads_layout = []
         ads_layout_list = self.__slice(ads_list_ids, limit, slice_list=[])
         for AdsLayout_id_list in ads_layout_list:
             ads_layout_ids_string = ",".join([str(x) for x in AdsLayout_id_list])
-            ads_layout_response = self.__request('ads.getAdsLayout', request_type='get', account_id=account_id,
-                                                 client_id=client_id, ad_ids=f"[{ads_layout_ids_string}]",
+            ads_layout_response = self.__request('ads.getAdsLayout', request_type='get', account_id=self.account_id,
+                                                 client_id=self.client_id, ad_ids=f"[{ads_layout_ids_string}]",
                                                  include_deleted=1)
             for AdsLayout_stat in ads_layout_response:
                 ads_layout.append(AdsLayout_stat)
