@@ -33,9 +33,9 @@ class VKApp:
             request_data = requests.get(self.__method_url + method, params=params).json()
         else:
             request_data = requests.post(self.__method_url + method, params=params).json()
-        return self.__get_errors(request_data, method, params, request_type, i=0)
+        return self.get_errors(request_data, method, params, request_type, i=0)
 
-    def __get_errors(self, response, method, params, request_type, i=0):
+    def get_errors(self, response, method, params, request_type, i=0):
         if "error" in response:
             time.sleep(7)
             if (response['error']['error_code'] not in [100, 9]) or (i > 5):
@@ -43,7 +43,7 @@ class VKApp:
             else:
                 data = self.__request(method, request_type, **params)
                 i += 1
-                return self.__get_errors(data, method, params, request_type)
+                return self.get_errors(data, method, params, request_type, i=i)
         elif 'response' in response:
             return response['response']
         else:
